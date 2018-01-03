@@ -22,6 +22,21 @@ app.use(
   })
 );
 
+
+// app.get from Unsplash API proxy
+//    need image URL and photographer
+
+const quotesArr = require('./quotes.json');
+
+app.get('/quotes', (req,res)=>{
+  let length=quotesArr.length-1;
+  res.json(
+    quotesArr[Math.floor(Math.random()*length)]
+  );
+});
+
+
+
 function runServer(port = PORT) {
   const server = app
     .listen(port, () => {
@@ -37,5 +52,7 @@ if (require.main === module) {
   dbConnect();
   runServer();
 }
+
+
 
 module.exports = {app};
