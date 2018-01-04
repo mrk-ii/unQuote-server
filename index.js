@@ -22,18 +22,6 @@ app.use(
   })
 );
 
-
-// app.get from Unsplash API proxy
-//    need image URL and photographer
-
-// app.get('/photos/random', (req,res)=>{
-//   const AUTH_TOKEN = 'Secret 6cf7c077b74ccaf8c41f2284618bd10702324e5db3c04ac4b5a68fc29e1c5dc0';
-//   // const { user.name, user.portfolio_url, urls.regular } = req.query;
-//   res.json(
-//     imageArr
-//   );
-// });
-
 const quotesArr = require('./quotes.json');
 
 app.get('/quotes', (req,res)=>{
