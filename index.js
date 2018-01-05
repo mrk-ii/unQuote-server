@@ -32,7 +32,7 @@ app.get('/quotes', (req,res)=>{
   );
 });
 
-app.post('/memes', (req, res) => {
+app.post('/memes', jsonParser, (req, res) => {
   MemeModel
     .create({
       'photographerName': req.body.photographerName,
@@ -44,6 +44,14 @@ app.post('/memes', (req, res) => {
     })
     .then(created => {
       res.status(201).json(created);
+    });
+});
+
+app.get('/memes', (req, res) => {
+  MemeModel
+    .find()
+    .then(memes => {
+      res.status(200).json(memes);
     });
 });
 
