@@ -3,10 +3,11 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-
-const {PORT, CLIENT_ORIGIN} = require('./config');
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
+const {PORT, CLIENT_ORIGIN, DATABASE_URL} = require('./config');
 const {dbConnect} = require('./db-mongoose');
-// const {dbConnect} = require('./db-knex');
+const { MemeModel } = require('./models');
 
 const app = express();
 
@@ -31,7 +32,26 @@ app.get('/quotes', (req,res)=>{
   );
 });
 
+app.post('/memes', (req, res) => {
+  MemeModel
+    .create({
+      'photographerName': req.body.photographerName,
+      'photographerURL': req.body.photographerURL,
+      'imageUrl': req.body.imageUrl,
+      'quote': req.body.quote,
+      'author': req.body.author,
+      'rating': req.body.rating
+    })
+    .then(created => {
+      res.status(201).json(created);
+    });
+});
 
+app.use('*', function (req, res) {
+  res.status(404).json({
+    message: 'Endpoint Not Found' 
+  }); 
+});
 
 function runServer(port = PORT) {
   const server = app
