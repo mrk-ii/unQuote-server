@@ -1,2 +1,14 @@
 language: node_js
 node_js: node
+services:
+- mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: m3z2OWqklbmSnE1eqK+KeQ9hePcNtsItMjfJ9YRRgWzaY0QYLtYVBcys6r15xEBoXSTJDMHoFUHzV3pRCEbgq/7wIRz6w2+XG+pLw00FyxC2aQ9jSyIr1WQyXqWTNSmpdWOTwBXII5uoEDfsP8aBZY7q0b5K5oEYhy8ZspD/2juhAnDqYnwsjZyMqfVG7ClE+abpCAl49K9QskTqxwHkLuK+JrUl0fpzSYRBAx0tJ+XPsvopIQiHiBbYTnmxGPhG+EyirtpvRW51kCtPluH+C5Vyc81ZHdV8aaumYIqFkCJIrfwFaIVxhj0mUUeSmSg999h9tmlVJFcCQrx7EeDvjrsTNcTM0vdELMAwuUq/hRscsFOdgLkwxN/FDvPEzq8+1MxAP4IIJA3w1SXLE5pAjStMsmq+PSawGpXSUzcR5IXA+XHPCCvPcFGC7vMHHe8yrUisa3YXFLs4nMJv4GKySiMfnDZ+Y6AWp3hDjY7WXo8lHhBsbvj79XF02BW/fVgVh5Nwox8StPnxxLrg3TGYZ7RrMYsTXqJHryMP4ppEuw6GU23QgrbsiHgOPurSTPf1/Y+dcLQoOcxUTo0acda1MefUdEVpZP8aICKnIofhQQIBiT0DVEKWgC267sSDykWy5wvpGoktmx82vk+yU0DqlOIGfMjoPDY75Hw3G9qV7HI=
+  app: unquoteserver
+  on:
+    repo: mrk-ii/unQuote-server
+app: unquote-server
+true:
+  repo: mrk-ii/unQuote-server
