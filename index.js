@@ -77,7 +77,7 @@ if (require.main === module) {
   runServer();
 }
 
-app.listen(8080);
+// app.listen(8080);
 
 
 module.exports = {app};
